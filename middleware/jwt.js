@@ -7,7 +7,11 @@ export default function tokenverification (req, res, next ) {
     try {
         let KEY = process.env.KEY
         let token = req.headers.authorization
+        if (!token || !token.startsWith("Bearer ")) {
+            return res.status(401).json({ error: "No token provided or invalid format" });
+        }
         token = token.split(' ')[1]
+        
         jwt.verify(token, KEY, (error, decode)=>{
             if (error) {
                 res.status(400).send({error: "Invalid token"})

@@ -34,7 +34,7 @@ export async function login(req, res) {
             if (user.password == pass) {
                 let payload = {
                     id: user._id,
-                    roll: user.roll,
+                    roll: user.roll
                 }
                 let KEY = process.env.KEY
                 let token = jwt.sign(payload, KEY, {expiresIn:"2h"})

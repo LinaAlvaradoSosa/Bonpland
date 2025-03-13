@@ -79,5 +79,24 @@ export async function getAllPropertiesByFilters(req, res) {
         console.log(error.message);
         res.status(500).json({ message: "Error, please constact the admin", error });
     }
-};
+}
+export async function getPropertiesByPages (req, res) {
+    try {
+        const page = parseInt(req.query.page) || 1;
+        const limit = 10; 
+        const skip = (page - 1) * limit;
 
+        const totalProperties = await Property.countDocuments();
+        const properties = await Property.find().skip(skip).limit(limit);
+
+        res.json({
+            totalPages: Math.ceil(totalProperties / limit),
+            currentPage: page,
+            hasPrevPage: page > 1,
+            hasNextPage: page < Math.ceil(totalProperties / limit),
+            properties,
+        });
+    } catch (error) {
+        res.status(500).json({ message: "Error getting properties", error });
+    }
+}
