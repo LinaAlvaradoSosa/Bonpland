@@ -1,57 +1,77 @@
 import mongoose from "mongoose";
 
-const PropertySchema = new mongoose.Schema({
-    name: { 
-        type: String, 
-        required: true 
+const PropertySchema = new mongoose.Schema ({
+    id: {
+        type: mongoose.Schema.Types.UUID,
+        required: true,
     },
-    description: { 
+    title: {
+        type: String, 
+        required: true,
+    },
+    description: {
         type: String,
-        required: true
+        required: true,
     },
-    country: { 
-        type: String,
-        required: true 
+    price: {
+        type: Number,
+        required: true,
     },
-    city: { 
-        type: String, 
-        required: true 
+    location: {
+        country: {
+            type: String, 
+            required: true,
+        },
+        city: {
+            type: String, 
+            required: true,
+        },
+        address: {
+            type: String, 
+            required: true,
+        },
     },
-    address: { 
-        type: String, 
-        required: true 
+    bedrooms: {
+        type: Number,
+        required: true,
     },
-    price: { 
+    bathrooms: {
         type: Number, 
-        required: true 
+        required: true,
     },
-    squareMetersMin: { 
+    area: {
+        type: Number, 
+        required: true,
+    },
+    images: {
+        type: [String], 
+        required: true,
+    },
+    propertyType: {
         type: String, 
-        required: true 
+        required: true,
     },
-    squareMetersMax: { 
+    contractType: {
         type: String, 
-        required: true 
+        required: true,
     },
-    rooms: { 
+    propertyStatus: {
         type: String, 
-        required: true 
+        required: true,
     },
-    contractType: { 
-        type: String, 
-        enum: ["alquiler", "compra"],
-        required: true
+    featured: {
+        type: Boolean,
+        default: false,
     },
-    status: {
-        type: String, 
-        enum: ["Disponible", "Reservado", "Alquilado", "Vendido"],
-        default: "Disponible" 
+    isNew: {
+        type: Boolean, 
+        default: false,
     },
-    images: { 
-        type: String
-    }
-})
-
+    createdAt: {
+        type: Date, 
+        default: Date.now, 
+    },
+});
 const Property = mongoose.model('Property', PropertySchema)
 
 export default Property
