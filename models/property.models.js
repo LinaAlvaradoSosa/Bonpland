@@ -1,10 +1,6 @@
 import mongoose from "mongoose";
 
 const PropertySchema = new mongoose.Schema ({
-    id: {
-        type: mongoose.Schema.Types.UUID,
-        required: true,
-    },
     title: {
         type: String, 
         required: true,
@@ -63,7 +59,7 @@ const PropertySchema = new mongoose.Schema ({
         type: Boolean,
         default: false,
     },
-    isNew: {
+    isNewProperty: {
         type: Boolean, 
         default: false,
     },
