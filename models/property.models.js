@@ -73,17 +73,3 @@ const Property = mongoose.model('Property', PropertySchema)
 export default Property
 
 
-// {
-// "name": "",
-// "description": "",
-// "country": "",
-// "city": "",
-// "address": "",
-// "price": "",
-// "squareMetersMin": "",
-// "squareMetersMax": "",
-// "rooms": "",
-// "contractType": "",
-// "status": "",
-// "images": ""
-// }

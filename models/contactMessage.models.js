@@ -14,6 +14,10 @@ const ContactMessageSchema = new mongoose.Schema({
         type: String,
         require: true
     },
+    email:{
+        type:String,
+        require: true
+    },
     status: {
         type: Boolean,
         default: false

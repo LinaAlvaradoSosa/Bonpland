@@ -1,5 +1,6 @@
 import administrator from "../models/administrator.models.js";
 import jwt from "jsonwebtoken";
+import ContactMessage from "../models/contactMessage.models.js";
 import { configDotenv } from "dotenv";
 configDotenv();
 
@@ -52,5 +53,19 @@ export async function login(req, res) {
         res.status(500).send({error: "Error, please contact the admin"});      
     }
     
+}
+
+export async function contactMessage(req, res) {
+    try {
+        const { name, message, referenceCode, email } = req.body;
+        if (!name || !message || !referenceCode || !email) {
+        return res.status(400).json({ error: "Todos los campos son obligatorios" });
+        }
+        const newMessage = new ContactMessage({ name, message, referenceCode, email });
+        await newMessage.save();
+        res.status(201).json({ message: "Solicitud enviada con éxito", data: newMessage });
+    } catch (error) {
+        res.status(500).json({ error: "Error al guardar la solicitud" });
+    }
 }
 
