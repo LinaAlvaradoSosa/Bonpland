@@ -69,3 +69,13 @@ export async function contactMessage(req, res) {
     }
 }
 
+export async function getcontactMessage(req, res) {
+    try {
+        const getcontactMessage = await ContactMessage.find();
+        res.status(201).json({ok:true, getcontactMessage})
+    } catch (error) {
+        console.log(error.message);
+        res.status(500).send({error: "Error, please contact the admin"})
+    }
+
+}
