@@ -1,5 +1,5 @@
 import express from 'express';
-import { contactMessage, login, register } from '../controllers/users.controller.js';
+import { contactMessage, getcontactMessage, login, register } from '../controllers/users.controller.js';
 import { deleteProperty, getAllPropertiesByFilters, getDestacados, getProperties, getPropertiesByPages, getPropertyById, newProperty, updateProperty } from '../controllers/property.controller.js';
 import tokenverification from "../middleware/jwt.js"
 
@@ -11,7 +11,7 @@ const router = express.Router()
 router.post('/register', register)
 router.post('/login', login)
 router.post('/contactMessage', contactMessage)
-router.get('/getContactMessage', contactMessage)
+router.get('/getContactMessage', getcontactMessage)
 
 
 // inmuebles
