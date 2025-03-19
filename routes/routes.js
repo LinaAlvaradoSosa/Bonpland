@@ -1,6 +1,6 @@
 import express from 'express';
 import { contactMessage, login, register } from '../controllers/users.controller.js';
-import { deleteProperty, getAllPropertiesByFilters, getProperties, getPropertiesByPages, getPropertyById, newProperty, updateProperty } from '../controllers/property.controller.js';
+import { deleteProperty, getAllPropertiesByFilters, getDestacados, getProperties, getPropertiesByPages, getPropertyById, newProperty, updateProperty } from '../controllers/property.controller.js';
 import tokenverification from "../middleware/jwt.js"
 
 
@@ -24,6 +24,7 @@ router.put('/updateProperty/:id', tokenverification, updateProperty)
 router.get('/getAllProperties', getAllPropertiesByFilters)
 router.get('/properties', getPropertiesByPages)
 // http://localhost:3000/properties?page=1
+router.get('/getDestacados', getDestacados)
 
 
 

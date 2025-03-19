@@ -41,19 +41,15 @@ const PropertySchema = new mongoose.Schema ({
     },
     images: {
         type: [String], 
-        required: true,
     },
     propertyType: {
         type: String, 
-        required: true,
     },
     contractType: {
         type: String, 
-        required: true,
     },
     propertyStatus: {
         type: String, 
-        required: true,
     },
     featured: {
         type: Boolean,
@@ -67,6 +63,10 @@ const PropertySchema = new mongoose.Schema ({
         type: Date, 
         default: Date.now, 
     },
+    destacado: {
+        type: Boolean,
+        default: false 
+    }
 });
 const Property = mongoose.model('Property', PropertySchema)
 
