@@ -62,10 +62,6 @@ const PropertySchema = new mongoose.Schema ({
     createdAt: {
         type: Date, 
         default: Date.now, 
-    },
-    destacado: {
-        type: Boolean,
-        default: false 
     }
 });
 const Property = mongoose.model('Property', PropertySchema)

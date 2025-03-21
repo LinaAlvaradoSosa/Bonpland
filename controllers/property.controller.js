@@ -102,7 +102,7 @@ export async function getPropertiesByPages (req, res) {
 }
 export async function getDestacados(req, res) {
     try {
-        const propiedadesDestacados = await Property.find({ destacado: true });
+        const propiedadesDestacados = await Property.find({ featured: true });
         res.json(propiedadesDestacados);
     } catch (error) {
         res.status(500).json({ message: "Error al obtener las propiedades destacadas", error });
