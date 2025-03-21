@@ -19,7 +19,7 @@ const ContactMessageSchema = new mongoose.Schema({
         require: true
     },
     status: {
-        type: Boolean,
+        type: String,
         default: false
         // false = pendiente, true = atendido
     },
